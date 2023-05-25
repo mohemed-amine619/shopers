@@ -23,7 +23,6 @@
       if($result){
         if(mysqli_num_rows($result) >0){
             $_SESSION['admin'] = mysqli_fetch_assoc($result);
-            print_r($_SESSION['admin']);
             header('location: admin.php');
         }
         else{

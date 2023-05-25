@@ -24,6 +24,7 @@
     <h2>list des categories </h2>
     <a href="ajouter_categorie.php" class="btn btn-primary">ajouter des categories</a>
     <?php
+    
        require_once'../connection.php';
      $req = "SELECT * FROM categorie";
      $result = mysqli_query($connection,$req);
@@ -35,7 +36,6 @@
     <tr>
         <th>id</th>
         <th>liblle</th>
-        <th>Description</th>
         <th>icon</th>
         <th>date creation</th>
         <th>option</th>
@@ -49,7 +49,6 @@
        <tr>
         <td><?php echo $elt['id_categorie'] ?></td>
         <td><?php echo $elt['libelle'] ?></td>
-        <td><?php echo $elt['description'] ?></td>
         <td><?php echo $elt['icon'] ?></td>
         <td><?php echo $elt['date_creation'] ?></td>
         <td>

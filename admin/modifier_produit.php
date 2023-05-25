@@ -31,6 +31,7 @@
     <?php
     $id_produit = $_GET['id'];
     $rem = "SELECT * FROM produit WHERE id_produit = '$id_produit';  ";
+
      $rel = mysqli_query($connection,$rem);
      if($rem){
      if(isset($_POST['modifier'])){
@@ -38,11 +39,19 @@
         $libelle = $_POST['libelle'];
         $prix = $_POST['prix'];
         $discount = $_POST['discount'];
+        $description = $_POST['description'];
         $qte = $_POST['qte'];
         $date = date('y-m-d');
         $id_categorie = $_POST['categorie'];
-        if(!empty($code_product) && !empty($libelle) && !empty($prix)  && !empty($id_categorie) &&!empty($qte)){
-           $sqli = "UPDATE produit SET id_produit = '$code_product',qte = '$qte', libelle = '$libelle', prix = '$prix', discount = '$discount' , date_creation ='$date', id_categorie = '$id_categorie' WHERE id_produit = '$id_produit';";
+        $image = "";
+        if(isset($_FILES['image'])){
+          $image = $_FILES['image']['name'];
+          $filename = uniqid().$image;
+          move_uploaded_file($_FILES['image']['tmp_name'],'../upload/produit/'.$filename);
+                
+      }
+        if(!empty($code_product) && !empty($libelle) && !empty($prix) && !empty($_POST['description'])  && !empty($id_categorie) &&!empty($qte)){
+           $sqli = "UPDATE produit SET id_produit = '$code_product',qte = '$qte', libelle = '$libelle', prix = '$prix', discount = '$discount' ,description = '$description', date_creation ='$date', image = '$filename', id_categorie = '$id_categorie' WHERE id_produit = '$id_produit';";
             $insert = mysqli_query($connection,$sqli);
             if($insert){
                 ?>
@@ -71,7 +80,7 @@
      while($elt = mysqli_fetch_array($rel)){
      ?>
 
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
     <label for="" class="form-label">code produit</label>
     <input type="number" class="form-control" name="id_produit" id=""  value="<?php echo $elt['id_produit'] ?>">
 
@@ -86,6 +95,14 @@
 
     <label for="" class="form-label">discount</label>
     <input type="number" class="form-control" name="discount" id="" min= "0" max ="100" required  value="<?php echo $elt['discount'] ?>">
+    
+    
+    <label for="" class="form-label">description</label>
+    <textarea class="form-control" name="description" id="" cols="30" rows="10"><?php echo $elt['description'] ?></textarea>
+
+    <label for="image" class="form-label">image produit</label>
+    <input type="file" class="form-control" name="image" id="" value="<?php echo $elt['image'] ?>">
+
     <label for="" class="form-label">categorie produitt</label>
     <select class="form-control my-2" name="categorie" id="">
         <option value="">choisir une categorie</option>

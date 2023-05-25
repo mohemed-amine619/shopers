@@ -4,7 +4,6 @@ DROP TABLE IF EXISTS categorie;
 CREATE TABLE categorie(
     id_categorie int(4) NOT NULL PRIMARY KEY AUTO_INCREMENT,
     libelle varchar(35) NOT NULL,
-    description varchar(150) NOT NULL,
     icon varchar(200) NOT NULL,
     date_creation date NOT NULL
 )ENGINE = INNODB;
@@ -15,6 +14,7 @@ CREATE TABLE produit (
     prix decimal(20,2) NOT NULL,
     qte int(5) NOT NULL,
     discount int(3) NOT NULL,
+    description varchar(150) NOT NULL,
     date_creation date NOT NULL,
     image varchar(200) NOT NULL,
     id_categorie int(4) NOT NULL AUTO_INCREMENT,

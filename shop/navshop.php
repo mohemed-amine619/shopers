@@ -11,16 +11,9 @@
             <li><a href="contact.php">Mes Commande</a></li>
         </ul>
     </nav>
-    
-    <div class="search">
-        <input type="search" name="" id="" placeholder="chercher un produit ??">
-        <input type="submit" value="search" ">
+    <div class="cart">
+       
+    <a href="./shop/cart.php"><ion-icon name="cart-outline"></ion-icon></a>
     </div>
 </div>
-<div class="contain">
-    <button></button>
-</div>
-<div class="alert">
-  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-  This is an alert box.
-</div>
+

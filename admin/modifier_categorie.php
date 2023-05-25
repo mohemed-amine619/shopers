@@ -27,9 +27,8 @@
        $sql = "SELECT * FROM categorie WHERE id_categorie = '$id' ";
        $res = mysqli_query($connection,$sql);
        if(isset($_POST['modifier'])){
-           if(!empty($_POST['libelle']) && !empty($_POST['description']) && !empty($_POST['icon']) ){
+           if(!empty($_POST['libelle'])  && !empty($_POST['icon']) ){
                $libelle = $_POST['libelle'];
-               $description = $_POST['description'];
                $icon = $_POST['icon'];
                $date = date('y-m-d');
                $requet = "UPDATE categorie

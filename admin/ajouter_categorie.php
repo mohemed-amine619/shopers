@@ -17,13 +17,13 @@
     <h4 style="margin-top:7px; text-align: center;">ajouter categorie</h4>
     <?php
     if(isset($_POST['ajc'])){
-        if(!empty($_POST['libelle']) && !empty($_POST['description']) &&  !empty($_POST['icon'])){
+        if(!empty($_POST['libelle'])  &&  !empty($_POST['icon'])){
             $libelle = $_POST['libelle'];
-            $description = $_POST['description'];
+           
             $icon = $_POST['icon'];
             $date = date('y-m-d');
            require_once "../connection.php";
-           $sql = "INSERT INTO categorie(libelle,description,icon,date_creation) VALUES('$libelle','$description','$icon','$date')";
+           $sql = "INSERT INTO categorie(libelle,icon,date_creation) VALUES('$libelle','$icon','$date')";
            $result = mysqli_query($connection,$sql);
         if($result){
             ?>
@@ -49,11 +49,6 @@
 
     <label for="" class="form-label">icon tag</label>
     <input type="text" class="form-control" name="icon" id="" placeholder="insert from ionicon">
-
-    <label for="" class="form-label">description</label>
-
-    <textarea class="form-control" name="description" id="" cols="30" rows="10"></textarea>
-
     <input type="submit"  name="ajc" value="ajouter categorie " class="btn btn-primary btn-lg my-2 ">
     </form>
   

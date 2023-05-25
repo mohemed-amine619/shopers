@@ -15,9 +15,9 @@
  <?php include 'include/nav.php'; 
  if($connect){
  ?>
+ 
   <div class="container">
    <?php
-   
    if(isset($_POST['submit'])){
     $login = $_POST['login'];
     $password = hash('md5',$_POST['password']);

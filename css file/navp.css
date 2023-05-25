@@ -16,6 +16,7 @@
     display: flex;
     margin-top: 15px;
     margin-left: 8px;
+    cursor: pointer;
 }
 .logo p{
     margin-left: 2px;
@@ -47,59 +48,23 @@ li a{
     transition: ease-in-out .3s;
 
 }
-/* search bar */
-.search{
+
+.cart{
     margin-top: 25px;
-    margin-right: 20px;
+    font-size: 30px;
+    color: white;
+    transition: ease-in-out .3s;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
     
 }
-.search input[ type = "search"]{
-    width: 300px;
-    height: 30px;
-    border: 2px solid #B9848C;
-    border-radius: 5px;
+.cart a{
+    color: #fff;
+    text-decoration: none;
     transition: ease-in-out .3s;
 }
-.search input[ type = "search"]:focus{
-    outline: #f44336;
-    border: 3px solid #B9848C;
-    border-radius: 8px;
-}
-.search input[ type = "submit"]{
-    width: 80px;
-    height: 30px;
-    background-color: #806491;
-    border-radius: 5px;
-    transition: ease-out .5s;
-    box-shadow: 0px 1px 2px black;
-    
-}
-
-li a:hover{
-    color: #806491;
-}
-
-.alert {
-    padding: 20px;
-    background-color: #f44336; /* Red */
-    color: white;
-    margin-bottom: 15px;
-    width: 200px;
-  }
-  
-  /* The close button */
-  .closebtn {
-    margin-left: 15px;
-    color: white;
-    font-weight: bold;
-    float: right;
-    font-size: 22px;
-    line-height: 20px;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  
-  /* When moving the mouse over the close button */
-  .closebtn:hover {
+.cart a:hover{
     color: black;
-  }
+}
+

@@ -27,6 +27,7 @@
         $libelle = $_POST['libelle'];
         $prix = $_POST['prix'];
         $discount = $_POST['discount'];
+        $description = $_POST['description'];
         $qte = $_POST['qte'];
         $date = date('y-m-d');
         $id_categorie = $_POST['categorie'];
@@ -39,8 +40,8 @@
                   
         }
          
-        if(!empty($code_product) && !empty($libelle) && !empty($prix)  && !empty($id_categorie) && !empty($qte)){
-           $sqli = "INSERT INTO produit (id_produit,libelle,prix,qte,discount,date_creation,image,id_categorie) VALUES ('$code_product','$libelle','$prix',$qte,'$discount','$date','$filename','$id_categorie')";
+        if(!empty($code_product) && !empty($libelle) && !empty($prix)  && !empty($id_categorie) && !empty($qte) && !empty($description)){
+           $sqli = "INSERT INTO produit (id_produit,libelle,prix,qte,discount,description,date_creation,image,id_categorie) VALUES ('$code_product','$libelle','$prix',$qte,'$discount','$description','$date','$filename','$id_categorie')";
             $insert = mysqli_query($connection,$sqli);
             if($insert){
                 ?>
@@ -81,11 +82,14 @@
 
     <label for="" class="form-label">discount</label>
     <input type="number" class="form-control" name="discount" id="" min= "0" max ="100" required>
+
+    <label for="" class="form-label">description</label>
+    <textarea class="form-control" name="description" id="" cols="30" rows="10"></textarea>
     
     <label for="image" class="form-label">image produit</label>
     <input type="file" class="form-control" name="image" id="">
 
-    <label for="" class="form-label">categorie produitt</label>
+    <label for="" class="form-label">categorie produit</label>
     <select class="form-control my-2" name="categorie" id="">
         <option value="">choisir une categorie</option>
         <?php
