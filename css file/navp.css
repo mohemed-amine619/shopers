@@ -10,6 +10,7 @@
     background-color: #02315E ;
     display: flex;
     justify-content: space-between;
+    
 }
 /* logo css */
 .logo{
@@ -48,7 +49,9 @@ li a{
     transition: ease-in-out .3s;
 
 }
-
+.main{
+    position: fixed;
+}
 .cart{
     margin-top: 25px;
     font-size: 30px;

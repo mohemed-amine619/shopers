@@ -40,9 +40,9 @@ if($zrt){
                 </div>
                 <div class="card-footer">
                   <div class="counter d-flex">
-                    <button class="btn btn-primary mx-1" id="ad">+</button>
-                    <input class="form-control" type="number" name="qte" id="qte" max="<?php echo $row['qte']?>">
-                    <button class="btn btn-primary mx1" id="rem">-</button>
+                    <button class="btn btn-primary mx-1 counter-add ">+</button>
+                    <input class="form-control" type="number" name="qte" id="qty" value="1" max="<?php echo $row['qte']?>">
+                    <button class="btn btn-primary mx1 counter-remove">-</button>
                   </div>
                 </div> 
            </div>

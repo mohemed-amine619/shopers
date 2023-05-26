@@ -32,9 +32,9 @@ if($pro){
                 </div>
                 <div class="card-footer">
                   <div class="counter d-flex">
-                    <button class="btn btn-primary mx-1" id="ad">+</button>
-                    <input class="form-control" type="number" name="qty" id="qte" max="<?php echo $ely['qte']?>">
-                    <button class="btn btn-primary mx-1" id="rem">-</button>
+                    <button class="btn btn-primary mx-1 counter-add">+</button>
+                    <input class="form-control" type="number" name="qty" id="qty" value="1" max="<?php echo $ely['qte']?>">
+                    <button class="btn btn-primary mx-1 counter-remove" >-</button>
                   </div>
                 </div>
           </div>

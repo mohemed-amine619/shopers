@@ -13,7 +13,7 @@ add.addEventListener('click', function(){
     }
 })
 remove.addEventListener('click',function(){
-    if(int > 0){
+    if(int > 1){
     int-=1;
     qte.value = int;
     }    
