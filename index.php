@@ -1,3 +1,14 @@
+<?php  session_start(); 
+if(isset($_POST['dd'])){
+    unset($_SESSION['client']);
+   unset($_SESSION['panier']);
+header('location: index.php');
+}
+$connect = false;
+if(isset($_SESSION['client'])){
+  $connect = true;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,11 +22,60 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <link rel="icon" type="icon/png"  href="./image/shopping.png">
-    <title>Document</title>
+    <title>shopers</title>
 </head>
 <body>
-    
-    <?php include_once "./shop/navshop.php" ;
+<div class="nav-bar" id="navbar">
+    <div class="logo">
+        <img src="./image/shopping.png" alt=""> <p> <strong> shopers </strong></p>
+    </div>
+    <?php
+    if($connect){
+       
+        $id_client = $_SESSION['client']['id_client'];
+        if(isset($_SESSION['panier'])){
+            $pro = count($_SESSION['panier'][$id_client]);
+        
+        }else{
+            $pro=0;
+        }
+    }
+    ?>
+        <nav>
+            <ul>
+                <li><a href="./index.php">Accuill</a></li>
+                <li><a href="about.php">A propos</a></li>
+                <li><a href="contact.php">Contact</a></li>
+                <?php 
+                if($connect){
+                  ?>
+                <li><a href="./shop/mes_commandes.php">Mes Commande</a></li>
+                <?php } ?>
+                <li><form action="" method="post">
+                <?php if(!$connect){
+                  ?>
+                <input class="btn btn-primary" type="submit" value="inscrire" name="ii">
+                <input class="btn btn-success" type="submit" value="connecetr" name="cc">
+               <?php }
+                if($connect){
+                  ?>
+          
+               <input class="btn btn-danger" type="submit" value="deconecter" name="dd">
+                </form></li>
+               <?php } ?>
+                <?php if(isset($_POST['cc'])){header('location: ./shop/login.php');}else if(isset($_POST['ii'])){header('location: ./shop/sing.php');}  ?>
+            </ul>
+        </nav>
+        <?php
+        if(!empty($_SESSION['panier'])){
+            ?>
+        <div class="cart">
+        <a href="./shop/panier.php" style="font-size: 20px;"><ion-icon style="font-size: 30px;" name="cart-outline"></ion-icon>(<?php echo $pro; ?>)</a>
+        </div>
+       <?php } ?>
+       
+    </div>
+    <?php
     require_once "./connection.php";
     ?>     
      <!-- Large button groups (default and split) -->
@@ -49,8 +109,9 @@
     </div>
     </div>
     
-    <center>
-    <div class="container mt-6" >
+    
+      <!-- search by categories -->
+    <div class="container" >
     <div class="row" id="row" >
        <center><h1 id="no"></h1></center> 
      <?php
@@ -68,9 +129,10 @@
     
     </div>
     </div>
-    </center>
+    
     <script src="./jquery/jq.js"></script>
     <script src="./js/count.js"></script>
     <script src="./js/search.js" defer></script>
     </body>
     </html>
+    

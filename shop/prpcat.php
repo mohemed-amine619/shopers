@@ -1,5 +1,6 @@
 <?php 
-$id_cat = $_GET['id'];
+
+ $id_cat = $_GET['id'];
 $req = "SELECT * FROM categorie WHERE id_categorie = '$id_cat';";
 $msq = mysqli_query($connection,$req);
 while($elt = mysqli_fetch_array($msq)){
@@ -24,10 +25,10 @@ if($zrt){
     }else{
         $total = $prix - ($prix * $row['discount'] / 100);
     }
-
+    
     ?>
-          <div class="card mb-4  col-md-4" style="width: 23rem;" id="oop">
-          <div class="container" style="height:270px">
+          <div class="card mb-4  col-md-4" style="width: 22rem;" id="oop">
+          <div class="container"  style="width: 18rem; height: 15rem;">
           <img  src="./upload/produit/<?php echo $row['image'] ?>" class="card-img-top w-70 mx-auto" alt="<?php echo $row['libelle'] ?>">
           </div>
               <div class="card-body">
@@ -40,9 +41,19 @@ if($zrt){
                 </div>
                 <div class="card-footer">
                   <div class="counter d-flex">
-                    <button class="btn btn-primary mx-1 counter-add ">+</button>
-                    <input class="form-control" type="number" name="qte" id="qty" value="1" max="<?php echo $row['qte']?>">
-                    <button class="btn btn-primary mx1 counter-remove">-</button>
+                    <?php
+                    if($connect){
+                    $id_user = $_SESSION['client']['id_client'];
+                     $qte = $_SESSION['panier'][$id_user][$row['id_produit']] ?? 0;
+                     ?>
+                    <form action="./shop/cart.php" method="post" class="counter d-flex">
+                    <button onclick="return false" class="btn btn-primary mx-1 counter-add ">+</button>
+                    <input type="hidden" name="id_produit" value="<?php echo $row['id_produit'] ?>">
+                    <input class="form-control" type="number" name="qty" id="qty" value="<?php if($connect) echo $qte ;?>" max="<?php echo $row['qte']?>">
+                    <button onclick="return false" class="btn btn-primary mx-1 counter-remove">-</button>
+                    <input type="submit" value="ajouter" name="ajouter" class="btn btn-success">
+                    </form>
+                    <?php } ?>
                   </div>
                 </div> 
            </div>

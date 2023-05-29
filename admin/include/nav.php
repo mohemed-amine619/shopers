@@ -5,7 +5,7 @@
      }
     
 ?>
-<nav class="navbar navbar-expand-lg  " style="background-color: blue; color: white;" >
+<nav class="navbar navbar-expand-lg " style="  background-color: blue; color: white;" >
   <div class="container-fluid">
     <a class="navbar-brand" href="" style="color :aliceblue"><strong> shopers </strong> </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,10 +28,7 @@
           <a class="nav-link" aria-current="page" href="categorie.php">liste des categories </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="ajouter_categorie.php">ajouter categorie </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="ajouter_produit.php">ajouter produit </a>
+          <a class="nav-link" aria-current="page" href="liste_commande.php">commande </a>
         </li>
         <li class="nav-item">
            <form action="" method="post">
@@ -45,7 +42,7 @@
            <?php 
           } 
            if(isset($_POST['deconn'])){
-            session_destroy();
+            unset($_SESSION['admin']);
             header('location: login.php');
            }
           ?>

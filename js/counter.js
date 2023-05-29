@@ -4,7 +4,6 @@ int = 0;
 qte = document.getElementById('qty');
 add = document.getElementById('add');
 remove = document.getElementById('remove');
-qte.value = 1;
 add.addEventListener('click', function(){
     if(int <= qte.value){
         if(int < qte.getAttribute('max'))
@@ -13,7 +12,7 @@ add.addEventListener('click', function(){
     }
 })
 remove.addEventListener('click',function(){
-    if(int > 1){
+    if(int > 0){
     int-=1;
     qte.value = int;
     }    
