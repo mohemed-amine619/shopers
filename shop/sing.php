@@ -23,7 +23,7 @@
       require_once '../connection.php';
       $date = date('y-m-d');
       $id = rand(0,999999);
-      $query = "SELECT * FROM client WHERE email_cl = '$email' AND password = '$password'";
+      $query = "SELECT * FROM client WHERE email = '$email' AND password = '$password'";
       $res = mysqli_query($connection,$query);
      
       if($res){
@@ -38,7 +38,7 @@
       <?php
         }
         else{
-          $sql = "INSERT INTO client(id_client,nom_cl,email_cl,password,date_creation) VALUES('$id','$login','$email','$password','$date');";
+          $sql = "INSERT INTO client(id_client,nom_cl,email,password,date_creation) VALUES('$id','$login','$email','$password','$date');";
           $result = mysqli_query($connection,$sql);
       if($result){
         ?>

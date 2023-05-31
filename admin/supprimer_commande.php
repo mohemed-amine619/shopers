@@ -7,7 +7,15 @@ if(isset($_SESSION['admin'])){
 if($connect){
 require_once "../connection.php";
 $id = $_GET['id'];
-echo $id;
+$sqlstat = "SELECT recu_commande FROM commande WHere id_commande = '$id';";
+$result = mysqli_query($connection,$sqlstat);
+$file = mysqli_fetch_assoc($result)['recu_commande'];
+$path = "../upload/recu/".$file;
+if(file_exists($path)){
+    if(!unlink($path)){
+        echo "erreur";
+    }
+}
 $sql = "DELETE FROM commande WHERE id_commande = '$id';";
 $del = mysqli_query($connection,$sql);
 if($del){

@@ -21,7 +21,7 @@ session_start();
     $password = hash('md5',$_POST['password']);
     if(!empty($email) && !empty($password)){
       require_once "../connection.php";
-      $query = "SELECT * FROM client WHERE email_cl = '$email' AND password = '$password'";
+      $query = "SELECT * FROM client WHERE email = '$email' AND password = '$password'";
       $result = mysqli_query($connection, $query);
       if($result){
         if(mysqli_num_rows($result) >0){

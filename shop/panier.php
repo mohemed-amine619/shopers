@@ -43,7 +43,7 @@ require_once "../connection.php";
       /* items is id_produit */
        if(isset($_POST['valider'])){
         $id_commande = rand(0,999999);
-        $date_commander = date('y-m-d-h-m-s');
+        $date_commander = date('y-m-d H:i:s', time() - 3600);
         $id_client = $_SESSION['client']['id_client'];
         while($produit = mysqli_fetch_array($req)){
             $id_produit = $produit['id_produit'];
@@ -73,7 +73,7 @@ require_once "../connection.php";
             $_SESSION['panier'][$id_client] = [];
             ?>
             <div class="alert alert-warning" role="alert">
-              votre commande n°=  <?php echo $id_commande ?> avec le montant <?php echo $total_co ?> été effectuer
+              votre commande n°=  <?php echo $id_commande ?> avec le montant <?php echo $total_co ?> DA été effectuer
         </div>
             <?php
         }

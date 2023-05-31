@@ -44,7 +44,7 @@
        <tr>
         <td><?php echo $commande['id_commande'] ?></td>
         <td><?php echo $commande['nom_cl'] ?></td>
-        <td><?php echo $commande['total'] ?></td>
+        <td><?php echo $commande['total'] ?><strong>DA</strong></td>
         <td><?php echo $commande['date_commander'] ?></td>
         <td><?php if($commande['valid'] == 0){
           ?> <a href="validiter_commande.php?id=<?php echo $commande['id_commande']; ?>&etat=1" class="btn btn-success">valider la commande</a><?php
@@ -79,7 +79,7 @@
        <tr>
         <td><?php echo $elt['id_produit'] ?></td>
         <td><?php echo $elt['libelle'] ?></td>
-        <td><?php echo $elt['prix'] ?></td>
+        <td><?php echo $elt['prix'] ?><strong>DA</strong></td>
         <td><?php echo $elt['qte'] ?></td>
         <td>
          <?php echo $elt['total_produit'] ?>

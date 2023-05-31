@@ -9,7 +9,7 @@ CREATE TABLE categorie(
 )ENGINE = INNODB;
 DROP TABLE IF EXISTS produit;
 CREATE TABLE produit (
-    id_produit int(6) NOT NULL PRIMARY KEY,
+    id_produit int(20) NOT NULL PRIMARY KEY,
     libelle varchar(35) NOT NULL,
     prix decimal(20,2) NOT NULL,
     qte int(5) NOT NULL,
@@ -32,7 +32,7 @@ CREATE Table client(
     id_client int(6) NOT NULL PRIMARY KEY,
     nom_cl varchar(30) NOT NULL,
     email varchar(30) NOT NULL,
-    num_tel int(10) NOT NULL
+    num_tel int(10) NOT NULL,
     password varchar(60) NOT NULL,
     date_creation date NOT NULL
 )ENGINE = INNODB;
@@ -40,7 +40,7 @@ DROP Table if EXISTS commande;
 CREATE Table commande(
     id_commande int(6) NOT NULL PRIMARY KEY,
     id_client int(6) NOT NULL,
-    total decimal(10,2) NOT NULL,
+    total decimal(30,2) NOT NULL,
     date_commander DATETIME NOT NULL,
     valid int(1) NOT NULL,
     recu_commande varchar(70) NOT NULL,
@@ -52,8 +52,8 @@ CREATE Table composer(
      id_commande int(6) NOT NULL,
     id_produit int(6) NOT NULL,
     qte int(5) NOT NULL,
-    prix decimal(10,2) NOT NULL,
-    total_produit decimal(10,2) NOT NULL,
+    prix decimal(30,2) NOT NULL,
+    total_produit decimal(30,2) NOT NULL,
     FOREIGN KEY(id_commande) REFERENCES commande(id_commande) ON UPDATE CASCADE ON DELETE CASCADE,
     FOREIGN KEY(id_produit) REFERENCES produit(id_produit) ON UPDATE CASCADE ON DELETE CASCADE
     )ENGINE = INNODB;

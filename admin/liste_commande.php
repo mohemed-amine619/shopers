@@ -48,7 +48,7 @@
        <tr>
         <td><?php echo $elt['id_commande'] ?></td>
         <td><?php echo $elt['nom_cl'] ?></td>
-        <td><?php echo $elt['total'] ?></td>
+        <td><?php echo $elt['total'] ?> <strong>DA</strong></td>
         <td><?php echo $elt['date_commander'] ?></td>
         <td>
         <a href="commande.php?id_commande= <?php echo $elt['id_commande']?>" class="btn btn-primary">afficher détails</a>

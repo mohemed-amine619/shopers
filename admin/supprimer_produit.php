@@ -5,9 +5,17 @@ if(isset($_SESSION['admin'])){
  $connect = true;
 }
 if($connect){
-require_once "../connection.php";
-$id = $_GET['id'];
-echo $id;
+    $id = $_GET['id'];
+    require_once "../connection.php";
+    $sqlstat = "SELECT image FROM produit WHere id_produit = '$id';";
+    $result = mysqli_query($connection,$sqlstat);
+    $file = mysqli_fetch_assoc($result)['image'];
+    $path = "../upload/produit/".$file;
+    if(file_exists($path)){
+        if(!unlink($path)){
+            echo "erreur";
+        }
+    }
 $sql = "DELETE FROM produit WHERE id_produit = '$id';";
 $del = mysqli_query($connection,$sql);
 if($del){
