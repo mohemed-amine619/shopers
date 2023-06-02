@@ -1,5 +1,4 @@
 var search = document.getElementById('search');
-console.log(search)
 search.addEventListener('keyup',function(){
   var result, div, prix,input,filter, txtValue;
   input= document.getElementById('search');
@@ -14,7 +13,7 @@ search.addEventListener('keyup',function(){
     if (txtValue.toUpperCase().indexOf(filter) > -1) {
       div[i].style.display = "";
     } else {
-      div[i].style.display = "none";
+      div[i].style.display = "none"
       result += 1;
     }
   }else{

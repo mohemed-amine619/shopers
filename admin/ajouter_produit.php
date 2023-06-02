@@ -16,8 +16,6 @@
     if($connect){
     $sql = "SELECT * FROM categorie ";
     $result = mysqli_query($connection,$sql);
-    
-    
      ?>
     <div class="container py-2">
     <h4 style="margin-top:7px; text-align: center;">ajouter produit</h4>

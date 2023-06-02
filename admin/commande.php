@@ -28,7 +28,7 @@
  if($connect){
  ?>
  <div class="container">
-   <h2>liste des commande</h2>
+   <h2>la commande :</h2>
    <table class="table table-success table-striped">
     <thead>
     <tr>
@@ -59,7 +59,7 @@
 </table>
 </div>
   <div class="container">
-    <h2>produit </h2>
+    <h2>les produits </h2>
   <table class="table table-success table-striped">
     <thead>
     <tr>

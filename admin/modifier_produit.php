@@ -34,6 +34,7 @@
 
      $rel = mysqli_query($connection,$rem);
      if($rem){
+
      if(isset($_POST['modifier'])){
        $code_product = $_POST['id_produit'];
         $libelle = $_POST['libelle'];
@@ -78,8 +79,17 @@
         }
      } 
      while($elt = mysqli_fetch_array($rel)){
+      if(isset($_POST['modifier'])){
+        $filename = $elt['image'];
+        $path = "../upload/produit/".$filename;
+        if(file_exists($path)){
+            if(!unlink($path)){
+                echo "erreur";
+            }
+      }
+    }
      ?>
-
+       
     <form action="" method="post" enctype="multipart/form-data">
     <label for="" class="form-label">code produit</label>
     <input type="number" class="form-control" name="id_produit" id=""  value="<?php echo $elt['id_produit'] ?>">

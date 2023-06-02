@@ -39,7 +39,7 @@ require_once "../connection.php";
         $total = 0;
         $total_co = 0;
         $prix_produit = [];
-     }
+    
       /* items is id_produit */
        if(isset($_POST['valider'])){
         $id_commande = rand(0,999999);
@@ -58,7 +58,7 @@ require_once "../connection.php";
                 'qty' => $qte
             ];
         }
-        
+    
         $sqlstate = "INSERT INTO commande(id_commande,id_client,total,date_commander,valid,recu_commande) VALUES ('$id_commande','$id_client','$total_co','$date_commander','$valid','norecu')";
         $valider_commande = mysqli_query($connection,$sqlstate);
         foreach($prix_produit as $produit){
@@ -77,6 +77,7 @@ require_once "../connection.php";
         </div>
             <?php
         }
+    }
     }
       ?>
       <h4>Panier</h4>

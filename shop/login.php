@@ -1,6 +1,5 @@
 <?php 
 session_start();
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +30,7 @@ session_start();
         else{
             ?>
         <div class="alert alert-danger" role="alert">
-           login ou bien password incorrect !
+           login ou bien password incorrect ! <a href="sing.php">vous n'avez pas un compte sur shopers ?</a>
         </div>
         <?php
         }
